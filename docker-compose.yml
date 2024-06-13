@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  cloudflare-ddns:
+    build: .
+    environment:
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - ZONE_ID=${ZONE_ID}
+      - RECORD_ID=${RECORD_ID}
+      - DNS_NAME=${DNS_NAME}
+      - INTERVAL=${INTERVAL}
+      - PUBLIC_IP_URL_1=${PUBLIC_IP_URL_1}
+      - PUBLIC_IP_URL_2=${PUBLIC_IP_URL_2}
+      - PUBLIC_IP_URL_3=${PUBLIC_IP_URL_3}
