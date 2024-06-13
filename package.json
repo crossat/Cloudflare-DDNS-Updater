@@ -4,6 +4,8 @@
   "description": "This is a Node.js application written in TypeScript that updates a Cloudflare DNS record with your current public IP address. It uses Docker for containerization.",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

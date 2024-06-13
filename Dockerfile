@@ -1,20 +1,23 @@
-# Use the official Node.js image from the Docker Hub
+# Use an official Node.js runtime as a parent image
 FROM node:14-alpine
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the working directory
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install the necessary dependencies
-RUN npm install
+# Install dependencies
+RUN npm install --only=production
 
-# Copy the rest of the application code to the working directory
-COPY . .
+# Bundle app source
+COPY dist/ ./dist/
 
-# Compile TypeScript to JavaScript
-RUN npx tsc
+# Build TypeScript
+RUN npm run build
+
+# Expose the port your app runs on
+EXPOSE 3000
 
 # Command to run the application
-CMD ["node", "dist/update-dns.js"]
+CMD ["npm", "start"]
