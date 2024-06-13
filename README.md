@@ -45,7 +45,6 @@ To run the DDNS updater application:
 - Docker:
 
     ```bash
-    Copy code
     docker build -t ddns-updater .
     docker run -d --name ddns-updater-app ddns-updater
     ```
